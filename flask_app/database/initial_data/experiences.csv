@@ -1,0 +1,5 @@
+"experience_id","position_id","name","description","hyperlink","start_date","end_date"
+"1","2","Software Engineer Intern","Collaborated with a group of engineers to build an internal support app.","https://www.startedge.com/","2022-05-07","2022-08-31"
+"2","1","CS Major Student","Computer science alumni taking ML, AI, Cyber Security, and mobile/web app design classes","https://admissions.msu.edu/academics/majors-degrees-programs/computer-science","2021-08-27","2025-05-02"
+"3","1","Business Minor Student","Studied business strategies including accounting, finance, and management","https://broad.msu.edu/undergraduate/","2023-12-16","2025-05-02"
+"4","3","BK Staff Employee","Worked as part of the closing team after high school. Helped cook orders and close up the shop.","http://careers.bk.com/work-at-bk","2021-07-01","2021-08-15"

@@ -1,0 +1,4 @@
+"inst_id","type","name","department","address","city","state","zip"
+"1","Software","Edge (formerly Eyerate)","Engineering",NULL,"Elk Grove","California",NULL
+"2","Academia","Michigan State University","Computer Science","426 Auditorium Rd, East Lansing, MI 48824","East Lansing","Michigan",NULL
+"3","Food","Burger King","Food Service",NULL,"Rochester Hills","Michigan",NULL
