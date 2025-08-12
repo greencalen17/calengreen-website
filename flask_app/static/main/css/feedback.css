@@ -1,0 +1,15 @@
+  /* Center the header text */
+  h1 {
+    text-align: center;
+    font-weight: normal;
+  }
+
+  /* Style the feedback list */
+  .feedback-list {
+    margin: 20px auto;
+    max-width: 600px;
+  }
+
+  .feedback-item {
+    margin-left: 20px; /* Indent bullet points */
+  }

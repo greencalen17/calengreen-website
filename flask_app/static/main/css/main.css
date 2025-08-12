@@ -1,0 +1,146 @@
+body {
+    background : #18453b;
+    color: #fff;
+}
+
+main {
+    margin-bottom: 60px; /* Add space between main content and footer */
+}
+
+#toggle-feedback-button {
+    margin-bottom: 60px; /* Adjust to just above footer */
+}
+
+.profile-wrapper {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    width: 100%;
+}
+.project-wrapper {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    width: 100%;
+}
+.profile-container {
+    display: flex;
+    justify-content: center; /* Center the profile section horizontally */
+    margin-top: 20px;
+    width: 80vw;
+    height: 50vh;
+}
+.projects-container {
+    display: flex;
+    justify-content: center; /* Center the profile section horizontally */
+    margin-top: 20px;
+    width: 80vw;
+    height: 50vh;
+}
+
+.fun-fact h1 {
+    color: #fff;
+}
+
+.inline-block-child {
+    display: inline-block;
+    padding: 5px;
+    text-align: justify; /* align text in middle */
+    text-justify: inter-word;
+    width: 50%;
+}
+
+.inline-block-child img {
+    object-fit: contain;
+    max-width: 95%; /* Ensure the image fits within its container */
+    height: 100%; /* Maintain aspect ratio */
+    width: 100%;
+}
+
+.inline-block-child p {
+    height: 85%; /* Ensure text container is almost as tall as the image */
+    overflow-y: auto; /* Add vertical scrollbar if the text overflows */
+}
+
+.child {
+    height: 100%; /* Ensures both image and text divs have the same height */
+}
+
+.name {
+    font-size: 1.5em; /* Make the name text bigger */
+    font-weight: bold; /* Make the name text bold */
+}
+
+.project-name {
+    font-size: 1.5em; /* Make the name text bigger */
+    font-weight: bold; /* Make the name text bold */
+}
+
+.inline-block-child p {
+    overflow-y: auto; /* Add scrollbar for text overflow */
+}
+
+.divider {
+    width: 100%; /* Full width of the profile container */
+    border-bottom: 2px solid #2e2e2e; /* Add a gray line */
+    margin-top: 20px;
+    max-width: 80%;
+    margin-left: auto; /* Center the line */
+    margin-right: auto;
+    margin-bottom: 20px; /* Adds space below the divider */
+}
+
+.fun-fact {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+}
+.projects-header {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+    text-align: center; /* Centers text within the container */
+}
+
+.coming-soon {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+}
+
+
+/* Media query for screen sizes less than 650px */
+@media (max-width: 650px) {
+    .profile-container {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        align-items: center;
+    }
+    .projects-container {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        align-items: center;
+    }
+    
+    .inline-block-child {
+        max-width: 80%; /* Remove width restriction for single column */
+        width: 100%; /* Set width to 100% to fill the container */
+    }
+
+    .inline-block-child p {
+        max-height: 100%; /* Allow the text to grow without restrictions */
+        overflow-y: visible; /* Make overflow text visible without scrollbar */
+    }
+
+    .divider {
+        width: 100%; /* Full width of the profile container */
+        border-bottom: 2px solid #2e2e2e; /* Add a gray line */
+        margin-top: 20px;
+        max-width: 80%; /* Adjust the width to match the profile container */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

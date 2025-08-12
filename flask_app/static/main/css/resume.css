@@ -1,0 +1,74 @@
+/* Constrain the width of the main resume container */
+.resume-container {
+    max-width: 100%;
+    margin: auto;
+    padding: 20px;
+    overflow-x: auto; /* Add horizontal scroll on smaller screens */
+}
+
+.institution {
+    margin-bottom: 30px;
+}
+
+.position {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.experience {
+    margin-left: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #fff;
+}
+
+h2 {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.location { /* Details of inst location */
+    font-size: 14px;
+    color: #7f8c8d;
+    overflow-wrap: break-word;
+    white-space: nowrap;
+}
+
+.dates { /* Start-End Dates */
+    font-size: 14px;
+    color: #7f8c8d;
+    overflow-wrap: break-word;
+    white-space: nowrap;
+}
+
+p {
+    margin: 5px 0;
+}
+
+/* Add bullet points for each position */
+.positions-list {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Add dash mark for each experience */
+.experiences-list {
+    list-style-type: none; /* Remove default bullet */
+    padding-left: 20px; /* Indent for alignment */
+}
+
+.experience::before {
+    content: "– "; /* Dash symbol before each experience */
+    color: #555; 
+}
+
+.skills-list {
+    list-style-type: decimal; /* This will give numbers instead of bullets */
+    margin-left: 10px;
+}
+
+.skills-list .skill {
+    font-weight: normal;
+}

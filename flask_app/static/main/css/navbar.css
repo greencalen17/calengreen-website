@@ -1,0 +1,113 @@
+/* navbar background */
+nav {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.1),
+        0 4px 8px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 60px;
+    width: 100%;
+    height: 15%;
+    position: relative;
+}
+
+/* How items are contained */
+.nav-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 85%;
+}
+
+/* Greeting message */
+.user-greeting {
+    color: #18453b;
+    margin-right: auto; /* Push it to the left */
+    font-weight: bold; /* Optional: make it bold */
+}
+
+/* Nav bar header */
+.nav-container h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    color: #18453b;
+    flex-grow: 1; /* Let the title take available space */
+}
+
+/* Links */
+.nav-container a {
+    color: #18453b;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.nav-container a img {
+    height: 5vh; /* make a square*/
+    width: 5vh;
+}
+
+/* change opacity when hovering over these items */
+a:hover {
+    opacity: 0.5;
+}
+
+menu:hover {
+    opacity: 0.5;
+}
+
+/* Align images */
+.nav-container img {
+    vertical-align: middle;
+}
+
+/* Default to no display when larger than 650px */
+.nav-container menu {
+    display: none;
+}
+
+/* Show the menu icon next to the title */
+@media (max-width: 650px) {
+    .nav-container {
+        flex-direction: column;
+        justify-content: space-between; /* Center vertically */
+        align-items: flex-start;
+    }
+
+    .nav-container .nav-links {
+        position: absolute;
+        background-color: #fff;
+        left: 0;
+        top: 30vh;
+    }
+
+    .nav-container a {
+        display: none; /* Hide the nav links */
+        margin-top: 10px;
+    }
+
+    /* Show the menu icon */
+    .nav-container menu {
+        display: block;
+        width: 5vh;
+        height: 5vh;
+        background-size: cover;
+        cursor: pointer;
+        margin-left: auto; /* Space between title and icon */
+    }
+
+    .nav-container menu img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Show the links in a column */
+    .nav-container.open a {
+        display: block;
+        color: #18453b; 
+    }
+}

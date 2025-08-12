@@ -1,0 +1,23 @@
+/* No margin space */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Adjusts to viewport without overflow */
+    overflow-x: hidden;
+}
+
+/* Banner hides overflow of image */
+header {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Adjusts to viewport width */
+    height: 15vh;
+    overflow: hidden;
+}
+
+/* Image adjusts to window size */
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
