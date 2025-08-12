@@ -1,0 +1,30 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Feedback</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='main/css/feedback.css') }}">
+      <style>
+      </style>
+    </head>
+    <body>
+      <!-- Header -->
+      <h1>Thanks for your feedback - here's what others had to say:</h1>
+
+      <!-- Feedback List -->
+      <div class="feedback-list">
+        <ul>
+          {% for item in feedback %}
+            <li class="feedback-item">{{ item.name }} said: {{ item.comment }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </body>
+    </html>
+
+{% endblock %}

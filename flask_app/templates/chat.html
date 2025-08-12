@@ -1,0 +1,86 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<!DOCTYPE html>
+<html lang="en">
+<div class="chat-container">
+    <h1>Welcome to the chat! Messages from the owner will appear on the right in blue. 
+        All other user messages will appear on the left in gray.
+    </h1>
+    <div class="divider"></div>
+
+    <!-- Chatroom display -->
+    <div id="chat">
+        <!-- Messages will be displayed here dynamically -->
+    </div>
+
+    <!-- Message input -->
+    <input id="message" type="text" placeholder="Enter Your Message Here" title="Message to enter by user"/>
+
+    <!-- Leave button -->
+    <button id="leave-btn">Leave Chat</button>
+</div>
+</html>
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+<script src="https://cdn.socket.io/3.1.1/socket.io.min.js"></script>
+<script type="text/javascript">
+    var socket;
+    $(document).ready(function() {
+        const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws'; // Choose the correct protocol
+        const socketUrl = `${protocol}://${document.domain}:${location.port}/chat`;
+        socket = io.connect(socketUrl);
+        // socket = io.connect('http://' + document.domain + ':' + location.port + '/chat');
+
+        // Join the room upon connection
+        socket.on('connect', function() {
+            socket.emit('joined', {});
+        });
+
+        // Display status updates (e.g., user joined)
+        socket.on('status', function(data) {
+            let tag = document.createElement("p");
+            let text = document.createTextNode(data.msg);
+            let element = document.getElementById("chat");
+            tag.appendChild(text);
+            tag.style.cssText = data.style;
+            element.appendChild(tag);
+            $('#chat').scrollTop($('#chat')[0].scrollHeight);
+        });
+
+        // Display incoming messages
+        socket.on('message', function(data) {
+            let tag = document.createElement("p");
+            tag.className = data.sender === "owner" ? "owner" : "guest";
+            tag.innerText = data.msg;
+            document.getElementById("chat").appendChild(tag);
+            $('#chat').scrollTop($('#chat')[0].scrollHeight);
+        });
+
+        // Send a message when "Enter" is pressed
+        $('#message').keypress(function(e) {
+            if (e.which === 13) { // Enter key
+                sendMessage();
+                e.preventDefault();
+            }
+        });
+
+        function sendMessage() {
+            const message = $('#message').val().trim();
+            if (message !== "") {
+                socket.emit('text', { msg: message });
+                $('#message').val(''); // Clear the input box
+            }
+        }
+
+        // Handle Leave Chat button
+        $('#leave-btn').click(function() {
+            socket.emit('left', {});
+            window.location.href = '/home';
+        });
+    });
+
+</script>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<!DOCTYPE html>
+<html lang="en">
+<main>
+    <div class="profile-wrapper">
+        <!-- wrap entire profile container to format -->
+        <div class="profile-container">
+            <div class='child inline-block-child'>
+                <img src="static/main/images/GradPic.jpg" alt="My Picture" loading="lazy">
+            </div>
+            <div class='child inline-block-child'>
+                <p><span class="name">Calen Green</span> Welcome to my personal website. This site is built
+                    with Python, JavaScript, HTML/CSS, MySql, sockets, and docker. Displaying full-stack, ERD, 
+                    and data analysis skills. All pages will adjust to your window and maintain functionality. 
+                    Check out some of the pages! You will see some cool projects, a resume built by pulling 
+                    from an hierarchical SQL database, and other cool features! For an official resume and 
+                    contact info, click <a href="{{ url_for('static', filename='main/images/2025 Calen Green Resume.pdf') }}" target="_blank">here</a>. 
+                    
+                    As a product-focused full-stack engineer, I thrive 
+                    on building tools that don't just work — they solve real problems. With hands-on 
+                    experience across the stack, from scalable APIs to responsive UIs using TypeScript and 
+                    React, I bring a deep passion for engineering with purpose. I'm drawn to environments 
+                    where I can contribute meaningfully to a company's growth — not just by writing code, 
+                    but by driving impact through thoughtful, user-centered development. I welcome the 
+                    chance to connect with anyone to learn more work opportunities. Just wanted to briefly 
+                    introduce myself and say I'm excited that you're using my website!
+                </p>
+            </div>
+        </div>
+    </div> 
+    <div class="divider"></div>
+    <div class="fun-fact">
+        <h1>Refresh to See Another Skill:</h1>
+        <p>{{fun_fact}}</p>
+    </div>
+</main>
+</html>
+{% endblock %}
+
+

@@ -1,0 +1,94 @@
+<!-- FILL ME IN WITH CODE FOR YOUR PAGE LAYOUT -->
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calen Green's personal page</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/header.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/navbar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='piano/css/piano.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/resume.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/chat.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/login.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/footer.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/feedbackbox.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/layout.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='main/images/CGfavicon.jpg') }}">
+  {% block extrajs %}{% endblock %}
+</head>
+
+<body>
+    <article>
+    <!-- The header  -->
+    <header>
+      <img src="static/main/images/engineering.jpg" alt="Banner Image" loading="lazy">
+    </header>
+
+    <!-- The navigation bar -->
+    <nav>
+        <div class="nav-container">
+            {% if user != 'Unknown' and request.path != '/login' %}
+                <span class="user-greeting">Welcome {{ user.split('@')[0] }}</span>
+            {% else %}
+                <h1>My Personal Website!</h1> 
+            {% endif %}
+            <menu> <img src="static/main/images/menu-bar.png" alt="Menu Bar" loading="lazy"> </menu>
+            <div class="nav-links">
+                <a href="home">Home</a> 
+                <a href="projects">Projects</a>
+                <a href="resume">SQL Resume</a>
+                <a href="chat">Chat</a>
+                <!-- Conditional Login/Logout Links -->
+                {% if user == 'Unknown' %}
+                    <a href="/login">Login/Signup</a>
+                {% else %}
+                    <a href="logout">Logout</a>
+                {% endif %}
+                <a href="https://www.linkedin.com/in/calen-green/" target="_blank">
+                    <img src="static/main/images/social-linkedin.png" alt="LinkedIn" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- The main content  -->
+    <main>
+      {% block maincontent %}{% endblock %}
+    </main>
+
+    <!-- Feedback Form -->
+    <div id="feedback-form-container" class="feedback-form-container hidden">
+      <form action="/processfeedback" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Your Name" title="Name of feedback giver."required>
+        <input type="email" name="email" placeholder="Your Email" title="Email of feedback giver." required>
+        <textarea name="comment" placeholder="Your Feedback" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <!-- Toggle Feedback Button -->
+    <!-- <button id="toggle-feedback-button" role="button">Feedback</button> -->
+    <!-- HTML !-->
+    <button id="toggle-feedback-button" class="button-2" role="button">
+      <span class="text">Feedback</span>
+    </button>
+
+    <!-- The footer of the file -->
+    <footer class="copyright-footer">
+      <p>© Calen E. Green</p>
+    </footer>
+
+    
+
+    </article>
+  
+</body>
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='main/js/feedback.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='main/js/navbar.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='main/js/main.js') }}" defer></script>
+{% endblock %}
+</html>

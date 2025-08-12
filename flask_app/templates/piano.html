@@ -1,0 +1,47 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<!DOCTYPE html>
+<html lang="en">
+<piano>
+    <div class="piano-header">
+        <p>Behold a JavaScript piano! Hover over it to see the keys. 
+            If you wish to see Mary's little lamb, play the sequence - UYTYUUUYYYUOOUYTYUUUUYYUYT </p>
+    </div>
+    <div class="divider"></div>
+    <img class="texture" src="static\piano\images\mary-had-a-little-lamb.jpg" alt="Texture" loading="lazy" />
+    <!-- Piano Layout -->
+    <div class="piano">
+        <div class="piano-title">Mary's Melody Machine</div>
+
+        <!-- White Keys -->
+        <div class="keys">
+            <div class="white-key"><span class="key-label">A</span></div>
+            <div class="white-key"><span class="key-label">S</span></div>
+            <div class="white-key"><span class="key-label">D</span></div>
+            <div class="white-key"><span class="key-label">F</span></div>
+            <div class="white-key"><span class="key-label">G</span></div>
+            <div class="white-key"><span class="key-label">H</span></div>
+            <div class="white-key"><span class="key-label">J</span></div>
+            <div class="white-key"><span class="key-label">K</span></div>
+            <div class="white-key"><span class="key-label">L</span></div>
+            <div class="white-key"><span class="key-label">;</span></div>
+            <!-- Black Keys -->
+            <div class="black-key-1"><span class="key-label">W</span></div>
+            <div class="black-key-2"><span class="key-label">E</span></div>
+            <div class="black-key-3"><span class="key-label">T</span></div>
+            <div class="black-key-4"><span class="key-label">Y</span></div>
+            <div class="black-key-5"><span class="key-label">U</span></div>
+            <div class="black-key-6"><span class="key-label">O</span></div>
+            <div class="black-key-7"><span class="key-label">P</span></div>
+        </div>
+
+    </div>
+</piano>
+</html>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='piano/js/piano.js') }}" defer></script>
+<script src="{{ url_for('static', filename='main/js/feedback.js') }}" defer></script>
+{% endblock %}

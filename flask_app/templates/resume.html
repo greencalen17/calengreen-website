@@ -1,0 +1,71 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<!DOCTYPE html>
+<html lang="en">
+    <div class="resume-container">
+        <!-- For each institution - generate a row --> 
+        {% for inst_id, inst in resume_data.items() %}
+            <div class="institution">
+                <div class="institution-info">
+                    <h1>{{ inst['name'] }}</h1>
+                    {% if inst['department'] or inst['address'] or inst['city'] or inst['state'] or inst['zip'] %}
+                        <div class="location" style="text-align: right;">
+                            {% if inst['department'] %}<span>{{ inst['department'] }}</span>, {% endif %}
+                            {% if inst['address'] %}<span>{{ inst['address'] }}</span>, {% endif %}
+                            {% if inst['city'] %}<span>{{ inst['city'] }}</span>, {% endif %}
+                            {% if inst['state'] %}<span>{{ inst['state'] }}</span>, {% endif %}
+                            {% if inst['zip'] %}<span>{{ inst['zip'] }}</span>{% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- For each affiliated position -->
+                {% if inst['positions'] %}
+                    <ul class="positions-list">
+                        {% for pos_id, pos in inst['positions'].items() %}
+                            <li class="position">
+                                <h2>{{ pos['title'] }}</h2>
+                                <div class="dates" style="text-align: right;">
+                                    {% if pos['start_date'] %}<span>{{ pos['start_date'] }}</span> {% endif %}
+                                    {% if pos['end_date'] %}<span>- {{ pos['end_date'] }}</span>{% endif %}
+                                </div>
+                                <p>{{ pos['responsibilities'] }}</p>
+                                
+                                <!-- For each affiliated experience -->
+                                {% if pos['experiences'] %}
+                                    <ul class="experiences-list">
+                                        {% for exp_id, exp in pos['experiences'].items() %}
+                                            <li class="experience">
+                                                {% if exp['hyperlink'] %}
+                                                    <a href="{{ exp['hyperlink'] }}" target="_blank">{{ exp['name'] }}</a>
+                                                {% else %}
+                                                    <strong>{{ exp['name'] }}</strong>
+                                                {% endif %}
+                                                <p>{{ exp['description'] }}</p>
+
+                                                <!-- For each affiliated skill -->
+                                                {% if exp['skills'] %}
+                                                <ol class="skills-list">
+                                                    {% for skill_id, skill in exp['skills'].items() %}
+                                                        <li class="skill">
+                                                            <p>{{ skill['name'] }}</p>
+                                                        </li>
+                                                    {% endfor %}     
+                                                </ol> 
+                                                {% endif %}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+</html>
+
+{% endblock %}

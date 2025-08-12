@@ -1,0 +1,62 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+
+<!DOCTYPE html>
+<html lang="en">
+<main>
+    <div class="projects-header">
+        <h1>Below is a list of projects I worked on:</h1>
+        <p>Click an image, or hyperlink in the description to learn more.</p>
+    </div>
+    <div class="divider"></div>
+    <!-- Take on very similar structure to home -->
+    <div class="project-wrapper">
+        <div class="projects-container">
+            <div class='child inline-block-child'>
+                <a href="https://docs.google.com/presentation/d/e/2PACX-1vTVj8UFEX_JYJtyWxqvpbGhMnhx7uTvZzoxUFLmcdMUsF3ox_k7Ig8MV8Opl0_L6LdWGStQC9okNcX1/pub?start=false&loop=false&delayms=3000" 
+                   target="_blank">
+                    <img src="static/main/images/NASAexoplanets.jpg" alt="Planets" loading="lazy">
+                </a>
+            </div>
+            <div class='child inline-block-child'>
+                <span class="project-name">Machine Learning Solar System Generator</span>
+                <p> As part of my first project, I aimed to develop a machine learning model that generates solar systems using exoplanet 
+                    data from <a href="https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS&constraint=default_flag=1&constraint=disc_facility+like+%27%25TESS%25%27" target="_blank">NASA Exoplanet Science Institute.</a> 
+                    Using sklearn's LinearRegression() function, I first implemented a baseline linear regression model to analyze 
+                    attribute relationships, followed by a more advanced neural network model to enhance solar system generation. The 
+                    ultimate goal of this model is to assist astronomers in simulating different solar system possibilities and refine 
+                    incomplete system definitions. This project showed me how even simple ML models can uncover meaningful structure in 
+                    complex, high-dimensional data. It also extended my understanding and interest in systems that blend scientific data 
+                    with generative Artificial Intelligence approaches. <a href="https://docs.google.com/presentation/d/e/2PACX-1vTVj8UFEX_JYJtyWxqvpbGhMnhx7uTvZzoxUFLmcdMUsF3ox_k7Ig8MV8Opl0_L6LdWGStQC9okNcX1/pub?start=false&loop=false&delayms=3000" target="_blank">View presentation here!</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="project-wrapper">
+        <div class="projects-container">
+            <div class='child inline-block-child'>
+                <a href="piano">
+                    <img src="static/main/images/piano.jpeg" alt="Piano" loading="lazy">
+                </a>
+            </div>
+            <div class='child inline-block-child'>
+                <span class="project-name">Mary's Melody Machine</span>
+                <p> For my second project, I developed
+                    an interactive piano build in pure HTML, CSS, and Javascript. This tool (in addition to my webpage) 
+                    highlight my ability to build beautiful and mobile-friendly front-end 
+                    applications. <a href="piano">Click here to see and play!</a>
+                </p>
+            </div>
+        </div>
+    </div> 
+    <div class="divider"></div>
+    <div class="coming-soon">
+        <h2>More coming soon!</h2>
+    </div>
+</main>
+</html>
+{% endblock %}
+
+
