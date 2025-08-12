@@ -1,0 +1,132 @@
+.piano-header {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+  text-align: center; /* Centers text within the container */
+}
+.piano-header p {
+  font-size: 1.5em; /* Bigger font */
+  font-style: italic; /* Italicizes the text */
+}
+
+.piano {
+  position: relative;
+  width: 50vw;
+  height: 50vh;
+  background-color: #2e2e2e;
+  border-radius: 10px;
+  margin: 0 auto;
+  text-align: center;
+  transition: opacity 0.5s ease;
+  display: flex;             
+  flex-direction: column;     
+}
+
+.texture {
+  display: none; /* Start hidden */
+  position: absolute; /* Position over the piano */
+  width: 50vw; /* Same size as the piano */
+  height: 50vh; /* Same size as the piano */
+  object-fit: cover; /* Cover the entire area without distorting */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.5s ease; /* Fade effect for texture */
+  z-index: 1; /* Make sure it is on top of the piano */
+  left: 50%; /* Start positioning from the middle of the container */
+  transform: translateX(-50%); /* Adjust to center horizontally */
+}
+
+.divider {
+  width: 100%; /* Full width of the profile container */
+  border-bottom: 2px solid #2e2e2e; /* Add a gray line */
+  margin-top: 20px;
+  max-width: 80%;
+  margin-left: auto; /* Center the line */
+  margin-right: auto;
+  margin-bottom: 20px; /* Adds space below the divider */
+}
+
+.piano-title {
+  color: #ffffff;
+  font-family: 'Times New Roman', serif;
+  font-size: 20px;
+  margin: 10px 0;             /* keep small so keys get space */
+}
+
+.keys {
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+  width: calc(100% - 20px);
+  position: relative;
+  flex: 1;
+}
+
+.white-key {
+  background-color: #ffffff;
+  width: 10%;
+  height: 100%;
+  border: 1px solid #000000;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Black keys */
+.black-key-1, .black-key-2, .black-key-3, 
+.black-key-4, .black-key-5, .black-key-6, .black-key-7 {
+  position: absolute;
+  background-color: #000000;
+  width: 6%;
+  height: 50%;
+  top: 0;           /* ✅ align with top of white keys */
+  z-index: 0;       /* stay above white keys */
+}
+
+/* Position each black key based on its corresponding white key */
+.black-key-1 {
+  left: 7.8%; /* Positioned relative to the first white key */
+}
+.black-key-2 {
+  left: 17.6%; /* Positioned relative to the second white key */
+}
+.black-key-3 {
+  left: 37.2%; /* Positioned relative to the fourth white key, skip the third */
+}
+.black-key-4 {
+  left: 47%;
+}
+.black-key-5 {
+  left: 56.8%;
+}
+.black-key-6 {
+  left: 76.4%;
+}
+.black-key-7 {
+  left: 86.2%;
+}
+
+/* Styling for the keyboard letters */
+.key-label {
+  position: absolute;
+  bottom: 10px; /* Positions the label 10px from the bottom of the key */
+  left: 50%; /* Start at 50% of the width */
+  transform: translateX(-50%); /* Center the text horizontally */
+  text-align: center;
+  font-size: 1.2em;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition effect */
+}
+
+.white-key .key-label {
+  color: #000000; /* Black text for white keys */
+}
+
+.black-key-1 .key-label,
+.black-key-2 .key-label,
+.black-key-3 .key-label,
+.black-key-4 .key-label,
+.black-key-5 .key-label,
+.black-key-6 .key-label,
+.black-key-7 .key-label {
+  color: #ffffff; /* White text for black keys */
+}
