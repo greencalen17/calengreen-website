@@ -132,7 +132,7 @@ def home():
                         'Mobile Apps','NodeJs','NestJs','NextJs','Git','ML','DevOps',
                         'Systems', 'Entity-Relationships', 'QA', 'Python', 'Pair Programming',
                         'AWS', 'scrum', 'HTML', 'Fast Learner', 'CSS', 'coachable'])
-	return render_template('home.html', user=getUser(), fun_fact = x)
+	return render_template('home.html', user=getUser(), skill = x)
 
 @app.route('/resume')
 def resume():

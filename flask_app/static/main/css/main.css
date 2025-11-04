@@ -36,8 +36,13 @@ main {
     height: 50vh;
 }
 
-.fun-fact h1 {
+.fun-skill h1 {
     color: #fff;
+}
+
+.fun-skill p {
+    color: #fff;
+    margin-top: -5px;
 }
 
 .inline-block-child {
@@ -88,8 +93,9 @@ main {
     margin-bottom: 20px; /* Adds space below the divider */
 }
 
-.fun-fact {
+.fun-skill {
     display: flex;
+    margin-top: 5px;
     flex-direction: column;
     width: 100vw;
     align-items: center;
